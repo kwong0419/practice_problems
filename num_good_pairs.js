@@ -27,35 +27,34 @@
 // 1 <= nums[i] <= 100
 
 
-const numIdenticalPairs = (nums) => {
-    let goodPairs = 0;
-    for(let i = 0; i < nums.length - 1; i++) {
-        for(let j = i + 1; j < nums.length; j++){
-            if(nums[i] == nums[j] && i < j){
-                goodPairs++;
-            }
-        }
-    }
-    return goodPairs;
-}
-// Time Complexity: O(n^2)
-
-
-// Runtime can be more efficient using a Map
 // const numIdenticalPairs = (nums) => {
-//     let numsMap = new Map();
 //     let goodPairs = 0;
-
-//     nums.forEach(num => {
-//         if(numsMap.has(num)){
-//             goodPairs += numsMap.get(num);
-//             numsMap.set(num, numsMap.get(num) + 1)
-//         } else {
-//             numsMap.set(num, 1)
+//     for(let i = 0; i < nums.length - 1; i++) {
+//         for(let j = i + 1; j < nums.length; j++){
+//             if(nums[i] == nums[j] && i < j){
+//                 goodPairs++;
+//             }
 //         }
-//     })
+//     }
 //     return goodPairs;
 // }
+// Time Complexity: O(n^2)
+
+// Runtime can be more efficient using a Map
+const numIdenticalPairs = (nums) => {
+    let numsMap = new Map();
+    let goodPairs = 0;
+
+    nums.forEach(num => {
+        if(numsMap.has(num)){
+            goodPairs += numsMap.get(num);
+            numsMap.set(num, numsMap.get(num) + 1)
+        } else {
+            numsMap.set(num, 1)
+        }
+    })
+    return goodPairs;
+}
 // Time Complexity: O(n)
 // Space Complexity: O(n)
 
