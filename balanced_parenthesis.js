@@ -125,13 +125,8 @@ const isValid = (s) => {
 // Time Complexity: O(n)
 // Space Complexity: O(n)
 
-console.log(isValid("()"))
-// true
-console.log(isValid("()[]{}"))
-// true
-console.log(isValid("(]"))
-// false
-console.log(isValid("([)]"))
-// false
-console.log(isValid("{[]}"))
-// true
+console.log(isValid("()")) // => true
+console.log(isValid("()[]{}")) // => true
+console.log(isValid("(]")) // => false
+console.log(isValid("([)]")) // => false
+console.log(isValid("{[]}")) // => true
