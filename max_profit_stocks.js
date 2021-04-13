@@ -45,7 +45,7 @@ const maxProfit = (prices) => {
             maxProfit = value - minPrice;
         }
     }
-    return maxProfit
+    return maxProfit;
 }
 // Time Complexity: O(n)
 
