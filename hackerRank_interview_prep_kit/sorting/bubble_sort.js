@@ -118,3 +118,5 @@ const countSwaps = (a) => {
     console.log('First Element: ' + a[0]);
     console.log('Last Element: ' + a[a.length - 1]);
 }
+
+// Time Complexity: O(n^2)
