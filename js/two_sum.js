@@ -4,7 +4,6 @@
 
 // You can return the answer in any order.
 
-
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -14,29 +13,31 @@
 // Solution 1: Brute Force
 // Not a good solution, worst Case: if size is large, runtime is O(n^2)
 const twoSum = (nums, target) => {
-    for(let i = 0; i < nums.length; i++){
-        for(let j = i + 1; j < nums.length; j++){
-            if(nums[i] + nums[j] === target){
-                return [i,j];
-            }
-        }
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        return [i, j]
+      }
     }
-};
+  }
+}
 // Time Complexity: O(n^2)
 // Space Complexity: O(1)
+console.log(twoSum([2, 7, 11, 15], 9)) // [0, 1]
 
 // Solution 2: One-Pass Hash Table
 // Better solution, worst case: runtime is O(n)
-const twoSum = (nums, target) => {
-    // object to store value and index
-    let obj = {};
-    for(let i = 0; i < nums.length; i++){
-        let complement = target - nums[i];
-        if(obj[complement] !== undefined){
-            return [obj[complement], i];
-        }
-        obj[nums[i]] = i;
+const twoSum2 = (nums, target) => {
+  // object to store value and index
+  let obj = {}
+  for (let i = 0; i < nums.length; i++) {
+    let complement = target - nums[i]
+    if (obj[complement] !== undefined) {
+      return [obj[complement], i]
     }
+    obj[nums[i]] = i
+  }
 }
 // Time Complexity: O(n)
 // Space Complexity: O(n)
+console.log(twoSum2([2, 7, 11, 15], 9)) // [0, 1]
