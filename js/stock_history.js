@@ -12,10 +12,9 @@
 //
 
 // input takes in list,
-// declare a min stock
-// declare a max stock
-// loop through array
-//
+// declare a buy stock
+// declare a sell stock
+// constraint - we want to buy BEFORE we sell
 
 let stockList = [
   { date: "1-1-2017", price: 130 },
@@ -32,13 +31,11 @@ const findBuySellDates = (list) => {
   let buy = { date: "0-0-0000", price: list[0]["price"], index: 0 };
   let sell = { date: "0-0-0000", price: list[0]["price"], index: 1 };
   list.forEach((stock, i) => {
-    console.log(i);
     if (stock.price < buy.price) {
       if (buy.index < sell.index) {
         buy.price = stock.price; // buyPrice = 110
         buy.index = i;
         buy.date = stock.date; // buyDate =  "5-1-2017"
-        console.log("buy: " + buy.index);
       }
     }
     if (stock.price > sell.price) {

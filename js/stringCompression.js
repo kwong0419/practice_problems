@@ -58,6 +58,7 @@ const compress = (chars) => {
       count = 1;
       prevChar = chars[i];
     }
+    console.log(str);
   }
   str += prevChar + count;
   let res = str.split("");
