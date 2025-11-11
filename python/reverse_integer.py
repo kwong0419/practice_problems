@@ -32,13 +32,19 @@ def reverse_integer(x):
         digit = x_abs % 10
         x_abs //= 10
         
-        # Check for overflow/underflow before multiplying by 10
-        if (reversed_x > INT_MAX // 10) or (reversed_x == INT_MAX // 10 and digit > INT_MAX % 10):
+        # Check for overflow before multiplying by 10
+        if reversed_x > (INT_MAX - digit) // 10:
             return 0
         
         reversed_x = reversed_x * 10 + digit
 
-    return sign * reversed_x
+    result = sign * reversed_x
+    
+    # Final bounds check (though the above check should prevent this)
+    if result < INT_MIN or result > INT_MAX:
+        return 0
+        
+    return result
 
 # Example usage:
 print(reverse_integer(123))      # Output: 321
