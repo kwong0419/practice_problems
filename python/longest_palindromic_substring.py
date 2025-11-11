@@ -26,7 +26,8 @@ def longest_palindromic_substring(s):
         len2 = expand_around_center(s, i, i + 1)  # Even length palindromes
         max_len = max(len1, len2)
 
-        if max_len > end - start:
+        # Change > to >= to prefer later palindromes of same length
+        if max_len >= end - start:
             start = i - (max_len - 1) // 2
             end = i + max_len // 2
 
