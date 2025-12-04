@@ -26,6 +26,14 @@
 # The number of nodes in both trees is in the range [0, 100].
 # -10^4 <= Node.val <= 10^4
 
+# TreeNode class definition
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 def is_same_tree(p, q):
     if not p and not q:
         return True
@@ -38,7 +46,33 @@ def is_same_tree(p, q):
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 
+# Helper function to convert list to binary tree (level-order)
+def array_to_tree(arr):
+    if not arr or len(arr) == 0:
+        return None
+    
+    root = TreeNode(arr[0])
+    queue = [root]
+    i = 1
+    
+    while queue and i < len(arr):
+        current = queue.pop(0)
+        
+        # Add left child
+        if i < len(arr) and arr[i] is not None:
+            current.left = TreeNode(arr[i])
+            queue.append(current.left)
+        i += 1
+        
+        # Add right child
+        if i < len(arr) and arr[i] is not None:
+            current.right = TreeNode(arr[i])
+            queue.append(current.right)
+        i += 1
+    
+    return root
+
 # Example Usage:
-print(is_same_tree([1,2,3], [1,2,3])) # True
-print(is_same_tree([1,2], [1,None,2])) # False
-print(is_same_tree([1,2,1], [1,1,2])) # False
+print(is_same_tree(array_to_tree([1, 2, 3]), array_to_tree([1, 2, 3])))  # True
+print(is_same_tree(array_to_tree([1, 2]), array_to_tree([1, None, 2])))  # False
+print(is_same_tree(array_to_tree([1, 2, 1]), array_to_tree([1, 1, 2])))  # False
