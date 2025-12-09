@@ -18,9 +18,9 @@
 
 // Constraints:
 
-// 1 <= nums.length <= 105
-// -109 <= nums[i] <= 109
-// 0 <= k <= 105
+// 1 <= nums.length <= 10^5
+// -10^9 <= nums[i] <= 10^9
+// 0 <= k <= 10^5
 
 function containsDuplicate(nums, k) {
     const numSet = new Set();
