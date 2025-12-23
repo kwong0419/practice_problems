@@ -30,7 +30,7 @@ def getRow(rowIndex):
     for i in range(rowIndex + 1):
         row.append(1)
     for i in range(1, rowIndex):
-        row[i] = row[i - 1] * (rowIndex - i + 1) / i
+        row[i] = row[i - 1] * (rowIndex - i + 1) // i
     return row
 
 # Time Complexity: O(rowIndex)
