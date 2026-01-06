@@ -37,9 +37,23 @@ function isPowerOfThree(n) {
 }
 
 // Time Complexity: O(log3(n))
-
+// Space Complexity: O(1)
 
 // Example Usage:
 console.log(isPowerOfThree(27)); // true
 console.log(isPowerOfThree(0)); // false
 console.log(isPowerOfThree(-1)); // false
+
+// Follow up:
+function isPowerOfThreeWithoutLoop(n) {
+    // 3^19 = 1162261467 is the largest power of 3 within 32-bit signed integer range
+    return n > 0 && 1162261467 % n === 0;
+}
+
+// Time Complexity: O(1)
+// Space Complexity: O(1)
+
+// Example Usage:
+console.log(isPowerOfThreeWithoutLoop(27)); // true
+console.log(isPowerOfThreeWithoutLoop(0)); // false
+console.log(isPowerOfThreeWithoutLoop(-1)); // false
