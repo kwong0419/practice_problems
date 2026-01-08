@@ -47,5 +47,5 @@ function validPerfectSquare(num) {
 // Space Complexity: O(1)
 
 // Example Usage:
-console.log(validPerfectSquare(16)); // Output: true
-console.log(validPerfectSquare(14)); // Output: false
+console.log(validPerfectSquare(16)); // true
+console.log(validPerfectSquare(14)); // false
