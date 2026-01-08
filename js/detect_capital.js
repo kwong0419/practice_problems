@@ -26,7 +26,7 @@ function detectCapitalUse(word) {
     let big = word.toUpperCase();
     if (word === small || word === big) return true;
     for (let i = 1; i < word.length; i++) {
-        if (word[i] === small[i]) return false;
+        if (word[i] !== small[i]) return false;
     }
     return true;
 }
