@@ -32,7 +32,7 @@ class TreeNode {
 }
 
 function isBalanced(root) {
-    // DFS function defined within the scope of isBalanced
+    // Depth First Search
     // Returns height if balanced, -1 if not balanced
     const dfs = (node) => {
         if (!node) return 0;
