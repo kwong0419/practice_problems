@@ -32,26 +32,23 @@ class TreeNode {
 }
 
 function isBalanced(root) {
-    return checkHeight(root) !== -1;
-}
+    // DFS function defined within the scope of isBalanced
+    // Returns height if balanced, -1 if not balanced
+    const dfs = (node) => {
+        if (!node) return 0;
 
-// Helper function that returns height if balanced, -1 if not balanced
-function checkHeight(node) {
-    if (!node) return 0;
+        const left = dfs(node.left);
+        if (left === -1) return -1;
 
-    // Check left subtree
-    const leftHeight = checkHeight(node.left);
-    if (leftHeight === -1) return -1; // Left subtree is not balanced
+        const right = dfs(node.right);
+        if (right === -1) return -1;
 
-    // Check right subtree
-    const rightHeight = checkHeight(node.right);
-    if (rightHeight === -1) return -1; // Right subtree is not balanced
+        if (Math.abs(left - right) > 1) return -1;
 
-    // Check if current node is balanced
-    if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+        return Math.max(left, right) + 1;
+    };
 
-    // Return height of current node
-    return Math.max(leftHeight, rightHeight) + 1;
+    return dfs(root) !== -1;
 }
 
 // Time Complexity: O(n) - each node visited once
