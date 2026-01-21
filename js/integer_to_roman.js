@@ -93,4 +93,10 @@ function integerToRoman(num) {
     return result;
 }
 
-// Time Complexity: 
+// Time Complexity: O(1) - constant time (at most 13 iterations)
+// Space Complexity: O(1) - constant space for the mapping and result
+
+// Example Usage:
+console.log(integerToRoman(3749));  // "MMMDCCXLIX"
+console.log(integerToRoman(58));    // "LVIII"
+console.log(integerToRoman(1994));  // "MCMXCIV"
