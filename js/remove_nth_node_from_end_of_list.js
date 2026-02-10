@@ -1,0 +1,60 @@
+// Given the head of a linked list, remove the nth node from the end of the list and return its head.
+
+
+
+// Example 1:
+
+
+// Input: head = [1,2,3,4,5], n = 2
+// Output: [1,2,3,5]
+
+// Example 2:
+
+// Input: head = [1], n = 1
+// Output: []
+
+// Example 3:
+
+// Input: head = [1,2], n = 1
+// Output: [1]
+
+
+// Constraints:
+
+// The number of nodes in the list is sz.
+// 1 <= sz <= 30
+// 0 <= Node.val <= 100
+// 1 <= n <= sz
+
+
+// Follow up: Could you do this in one pass?
+
+function removeNthFromEnd(head, n) {
+    let dummy = { val: 0, next: head };
+    let left = dummy;
+    let right = dummy;
+
+    // Move right pointer n+1 steps ahead
+    for (let i = 0; i <= n; i++) {
+        right = right.next;
+    }
+
+    // Move both pointers until right reaches the end
+    while (right !== null) {
+        left = left.next;
+        right = right.next;
+    }
+
+    // Remove the nth node from the end
+    left.next = left.next.next;
+
+    return dummy.next;
+}
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+// Example Usage:
+console.log(removeNthFromEnd([1, 2, 3, 4, 5], 2));  // [1,2,3,5]
+console.log(removeNthFromEnd([1], 1));  // []
+console.log(removeNthFromEnd([1, 2], 1));  // [1]
