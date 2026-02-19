@@ -22,27 +22,29 @@
 # The number of nodes in the tree is in the range [0, 10^5].
 # -1000 <= Node.val <= 1000
 
-def min_depth(root):
-    """
-    Finds the minimum depth of a binary tree.
-    Args:
-        root: The root of the binary tree.
-    Returns:
-        The minimum depth of the binary tree.
-    """
-    if not root:
-        return 0
-    if not root.left and not root.right:
-        return 1
-    if not root.left:
-        return min_depth(root.right) + 1
-    if not root.right:
-        return min_depth(root.left) + 1
-    return min(min_depth(root.left), min_depth(root.right)) + 1
+class Solution:
+    def minDepth(self, root):
+        """
+        Finds the minimum depth of a binary tree.
+        Args:
+            root: The root of the binary tree.
+        Returns:
+            The minimum depth of the binary tree.
+        """
+        if not root:
+            return 0
+        if not root.left and not root.right:
+            return 1
+        if not root.left:
+            return self.minDepth(root.right) + 1
+        if not root.right:
+            return self.minDepth(root.left) + 1
+        return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
 
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 
 # Example Usage:
-print(min_depth([3, 9, 20, None, None, 15, 7]))  # 2
-print(min_depth([2, None, 3, None, 4, None, 5, None, 6]))  # 5
+solution = Solution()
+print(solution.minDepth([3, 9, 20, None, None, 15, 7]))  # 2
+print(solution.minDepth([2, None, 3, None, 4, None, 5, None, 6]))  # 5
