@@ -41,7 +41,7 @@ def swapPairs(head):
     if not head or not head.next:
         return head
     newHead = head.next
-    head.next = swapPairs(head.next.next)
+    head.next = self.swapPairs(head.next.next)
     newHead.next = head
     return newHead
 
