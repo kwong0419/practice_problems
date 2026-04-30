@@ -46,6 +46,8 @@ function sortColors(nums) {
             high--;
         }
     }
+    
+    return nums;
 }
 
 
