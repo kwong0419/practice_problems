@@ -23,15 +23,16 @@
 // 1 <= left <= right <= 10^4
  
 
- function isSelfDividing(n) {
-    const s = String(n)
-    for (let i = 0; i < s.length; i++) {
-        const digit = Number(s[i])
+function isSelfDividing(n) {
+    let current = n;
+    while (current > 0) {
+        const digit = current % 10;
         if (digit === 0 || n % digit !== 0) {
-            return false
+            return false;
         }
+        current = Math.floor(current / 10);
     }
-    return true
+    return true;
 }
 
 function selfDividingNumbers(left, right) {
@@ -44,7 +45,7 @@ function selfDividingNumbers(left, right) {
     return result
 }
 
-// Time Complexity: O((right - left) * log(right))
+// Time Complexity: O(n * log10(right)) where n is (right - left +1)
 // Space Complexity: O(1)
 
 console.log(selfDividingNumbers(1, 22)) // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22 ]
