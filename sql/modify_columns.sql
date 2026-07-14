@@ -37,5 +37,18 @@
 -- Explanation:
 -- Every salary has been doubled.
 
+-- SQL Query:
 SELECT name, salary * 2 AS salary
 FROM employees;
+
+-- Python (Pandas) Code:
+import pandas as pd
+
+def modify_columns(employees: pd.DataFrame) -> pd.DataFrame:
+    employees['salary'] = employees['salary'] * 2
+    return employees
+
+# Test
+employees = pd.DataFrame({"name": ["Jack", "Piper", "Mia", "Ulysses"], "salary": [19666, 74754, 62509, 54866]})
+
+print(modify_columns(employees))
