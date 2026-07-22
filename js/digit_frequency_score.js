@@ -47,5 +47,5 @@ var digitFrequencyScore = function(n) {
 // Space Complexity: O(1)
 
 // Example Usage:
-console.log(digitFrequencyScore(122));
-console.log(digitFrequencyScore(101));
+console.log(digitFrequencyScore(122)); // 5
+console.log(digitFrequencyScore(101)); // 2
