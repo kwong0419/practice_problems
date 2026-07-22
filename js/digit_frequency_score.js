@@ -38,7 +38,7 @@ var digitFrequencyScore = function(n) {
     let score = 0;
     n = n.toString(); 
     for (let i = 0; i < n.length; i++) {
-        score += parseInt(n[i]) * parseInt(n[i]);
+        score += parseInt(n[i]);
     }
     return score;
 }; 
