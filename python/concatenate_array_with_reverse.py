@@ -44,6 +44,7 @@
 # 1 <= nums.length <= 100
 # 1 <= nums[i] <= 100
 
+from _typeshed import _type_checker_internals
 def concatenate_array_with_reverse(nums):
     ans = []
     for num in nums:
@@ -52,9 +53,20 @@ def concatenate_array_with_reverse(nums):
         ans.append(nums[i])
     return ans
 
+def concatenate_array_with_reverse_optimal(nums):
+    n = len(nums)
+    ans = [0] * (n * 2)
+    for i in range(n):
+        ans[i] = nums[i]
+        ans[n * 2 - 1 - i] = nums[i]
+    return ans
+
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 
 # Example Usage: 
 print(concatenate_array_with_reverse([1,2,3])) # [1,2,3,3,2,1]
 print(concatenate_array_with_reverse([1])) # [1,1]
+
+print(concatenate_array_with_reverse_optimal([1,2,3])) # [1,2,3,3,2,1]
+print(concatenate_array_with_reverse_optimal([1])) # [1,1]
