@@ -44,7 +44,6 @@
 # 1 <= nums.length <= 100
 # 1 <= nums[i] <= 100
 
-from _typeshed import _type_checker_internals
 def concatenate_array_with_reverse(nums):
     ans = []
     for num in nums:
