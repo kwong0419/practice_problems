@@ -37,6 +37,9 @@ def score_of_a_string(s):
         score += abs(ord(s[i]) - ord(s[i + 1]))
     return score
 
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+
 # Example Usage:
 print(score_of_a_string("hello")) # 13
 print(score_of_a_string("zaz")) # 50
