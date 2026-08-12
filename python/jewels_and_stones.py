@@ -2,8 +2,6 @@
 
 # Letters are case sensitive, so "a" is considered a different type of stone from "A".
 
- 
-
 # Example 1:
 
 # Input: jewels = "aA", stones = "aAAbbbb"
@@ -34,3 +32,4 @@ def num_jewels_in_stones(jewels, stones):
 # Example Usage:
 print(num_jewels_in_stones("aA", "aAAbbbb")) # 3
 print(num_jewels_in_stones("z", "ZZ")) # 0
+
