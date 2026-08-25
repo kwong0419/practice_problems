@@ -48,6 +48,9 @@ def reverse_prefix(s, k):
     prefix = prefix[::-1]
     return prefix + suffix
 
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+
 print(reverse_prefix("abcd", 2))
 print(reverse_prefix("xyz", 3))
 print(reverse_prefix("hey", 1))
