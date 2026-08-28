@@ -19,24 +19,11 @@
 
 function isPalindrome(head) {
     const vals = [];
-    let curr = head;
-    while (curr) {
-        vals.push(curr.val);
-        curr = curr.next;
+    while (head) {
+        vals.push(head.val);
+        head = head.next;
     }
-    
-    let left = 0;
-    let right = vals.length - 1;
-    
-    while (left < right) {
-        if (vals[left] !== vals[right]) {
-            return false;
-        }
-        left++;
-        right--;
-    }
-    
-    return true;
+    return vals.every((val, i) => val === vals[vals.length - 1 - i]);
 }
 
 // Time Complexity: O(n)
