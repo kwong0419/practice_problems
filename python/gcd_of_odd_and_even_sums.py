@@ -37,6 +37,7 @@
 # Constraints:
 
 # 1 <= n <= 10​​​​​​​00
+
 def gcdOfOddEvenSums(n: int) -> int:
     # sumOdd = n * n
     # sumEven = n * (n + 1)
