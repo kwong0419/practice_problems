@@ -57,4 +57,3 @@ def minBitwiseArray(nums):
 # Example Usage:
 print(minBitwiseArray([2, 3, 5, 7])) # [-1, 1, 4, 3]
 print(minBitwiseArray([11, 13, 31])) # [9, 12, 15]
- 
