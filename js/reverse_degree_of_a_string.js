@@ -46,11 +46,10 @@
 
 function reverseDegree (s) {
   let reverseDegree = 0;
-  let reverseAlphabetIndex = 26;
 
   for (let i = 0; i < s.length; i++) {
+    const reverseAlphabetIndex = 123 - s.charCodeAt(i);
     reverseDegree += reverseAlphabetIndex * (i + 1);
-    reverseAlphabetIndex--;
   }
 
   return reverseDegree;
