@@ -54,3 +54,34 @@ function smallerNumbersThanCurrent(nums){
 console.log(smallerNumbersThanCurrent([8,1,2,2,3])); // [4,0,1,1,3]
 console.log(smallerNumbersThanCurrent([6,5,4,8])); // [2,1,0,3]
 console.log(smallerNumbersThanCurrent([7,7,7,7])); // [0,0,0,0]
+
+
+function smallerNumbersThanCurrentOptimized(nums) {
+  const count = new Array(101).fill(0);
+
+  // 1. Count frequencies of each number (0 to 100): O(n)
+  for (let i = 0; i < nums.length; i++) {
+    count[nums[i]]++;
+  }
+
+  // 2. Prefix sum: count[i] stores total numbers <= i: O(1) (fixed 101 steps)
+  for (let i = 1; i <= 100; i++) {
+    count[i] += count[i - 1];
+  }
+
+  // 3. For any num, count[num - 1] gives count of numbers < num: O(n)
+  const result = [];
+  for (let i = 0; i < nums.length; i++) {
+    result.push(nums[i] === 0 ? 0 : count[nums[i] - 1]);
+  }
+
+  return result;
+}
+
+// Time Complexity: O(n)
+// Space Complexity: O(1) auxiliary space (or O(n) including the returned output array)
+
+// Example Usage:
+console.log(smallerNumbersThanCurrentOptimized([8,1,2,2,3])); // [4,0,1,1,3]
+console.log(smallerNumbersThanCurrentOptimized([6,5,4,8])); // [2,1,0,3]
+console.log(smallerNumbersThanCurrentOptimized([7,7,7,7])); // [0,0,0,0]
